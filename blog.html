@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css?_v=20220713230118"/>
+    <link rel="stylesheet" href="css/style.min.css?_v=20220713230118">
+    <title>Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap&_v=20220713230118" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap&_v=20220713230118" rel="stylesheet">
+</head>
+<body class="blog-body">
+    <header class="header blog-header">
+        <div class="container header-container flex">
+    <a href="index.html" class="logo">Hilight</a>
+    <nav class="header-nav flex">
+        <ul class="header-menu flex">
+            <li class="header-menu__list">
+                <a href="projects.html" class="header-menu__link">Projects</a>
+            </li>
+            <li class="header-menu__list">
+                <a href="about.html" class="header-menu__link">About us</a>
+            </li>
+            <li class="header-menu__list">
+                <a href="blog.html" class="header-menu__link">Blog</a>
+            </li>
+            <li class="header-menu__list">
+                <a href="contacts.html" class="header-menu__link">Contacts</a>
+            </li>
+        </ul>
+        <ul class="language header-nav__button">
+            <li class="language-en" lang="en">En</li>
+            <li class="language-uk" lang="uk"">Uk</li>
+        </ul>
+        <button class="send header-nav__button">Send request</button>
+    </nav>
+</div>
+    </header>
+    <main>
+        <section class="blog-news">
+            <div class="blog-news__container container">
+                <div class="blog-news__header flex">
+                    <h2 class="blog-news__title">Our latest news</h2>
+                    <nav class="blog-news__nav flex">
+                        <a href="#" class="filter active" data-filter="all">All</a>
+                        <a href="#" class="filter" data-filter=".category-blog">Blog</a>
+                        <a href="#" class="filter" data-filter=".category-news">News</a>
+                        <a href="#" class="filter" data-filter=".category-design">Advice from the designer</a>
+                    </nav>
+                </div>
+                <div class="blog-news__items">
+                    <div class="blog-news__item blog__text-news mix category-blog" data-cat="blog">
+                        <div class="text-news__wrap">
+                            <h4 class="text-news__title">5 smart tips for productive collaboration with the designer</h4>
+                            <p class="text-news__descr">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel gravida urna. Donec blandit sapien eu diam ullamcorper euismod. Nam tempus pellentesque ligula ut aliquam.</p>
+                            <a href="one-blog.html" class="text-news__link discover-link">Discover more</a>
+                        </div>
+                    </div>
+                    <div class="blog-news__item mix category-news" data-cat="news">
+                        <ul class="item-descr__header flex">
+                            <li>Lodz</li>
+                            <li>16.10.2018</li>
+                            <li>80 sq.m</li>
+                        </ul>
+                        <h4 class="item-descr__title">Residence by the lighthouse</h4>
+                        <a href="one-blog.html" class="blog-news__link">
+                            <img src="img/blog-news/news2.jpg" alt="news" class="blog-news__img">
+                        </a>
+                    </div>
+                    <div class="blog-news__item mix category-design" data-cat="design">
+                        <ul class="item-descr__header flex">
+                            <li>Lodz</li>
+                            <li>16.10.2018</li>
+                            <li>80 sq.m</li>
+                        </ul>
+                        <h4 class="item-descr__title blog-news__item-title">Non-standard plinth options</h4>
+                        <a href="one-blog.html" class="blog-news__link">
+                            <img src="img/blog-news/news3.jpg" alt="news" class="blog-news__img">
+                        </a>
+                    </div>
+                    <div class="blog-news__item mix category-design" data-cat="design">
+                        <ul class="item-descr__header flex">
+                            <li>Lodz</li>
+                            <li>16.10.2018</li>
+                            <li>80 sq.m</li>
+                        </ul>
+                        <h4 class="item-descr__title blog-news__item-title">Interior design, LCD Rybalsky</h4>
+                        <a href="one-blog.html" class="blog-news__link">
+                            <img src="img/blog-news/news4.jpg" alt="news" class="blog-news__img">
+                        </a>
+                    </div>
+                    <div class="blog-news__item mix category-news" data-cat="news">
+                        <ul class="item-descr__header flex">
+                            <li>Lodz</li>
+                            <li>16.10.2018</li>
+                            <li>80 sq.m</li>
+                        </ul>
+                        <h4 class="item-descr__title">Residence by the lighthouse</h4>
+                        <a href="one-blog.html" class="blog-news__link">
+                            <img src="img/gallery/photo1.jpg" alt="news" class="blog-news__img">
+                        </a>
+                    </div>
+                    <div class="blog-news__item blog__text-news mix category-blog" data-cat="blog">
+                        <div class="text-news__wrap">
+                            <h4 class="text-news__title">5 smart tips for productive collaboration with the designer</h4>
+                            <p class="text-news__descr">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel gravida urna. Donec blandit sapien eu diam ullamcorper euismod. Nam tempus pellentesque ligula ut aliquam.</p>
+                            <a href="one-blog.html" class="text-news__link discover-link">Discover more</a>
+                        </div>
+                    </div>
+                </div>
+                <ul class="blog-news__paginator flex">
+                    <li><a href="#"><img src="img/svg-icons/blog-prev.svg" alt="prev" class="blog-news__arrow"></a></li>
+                    <li><a href="#">01</a></li>
+                    <li><a href="#">02</a></li>
+                    <li><a href="#">03</a></li>
+                    <li><a href="#">...</a></li>
+                    <li><a href="#">15</a></li>
+                    <li><a href="#"><img src="img/svg-icons/blog-next.svg" alt="next" class="blog-news__arrow"></a></li>
+                </ul>
+            </div>
+        </section>
+        <section class="blog-form">
+            <div class="blog-form__container container flex">
+                <h2 class="blog-form__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+                <div class="blog-form__feedback flex">
+                    <p class="form-feedback__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ullamcorper eu mauris vitae posuere. Ut at luctus ligula. Nunc ante felis, aliquam.</p>
+                    <form method="get" class="feedback-form form-feedback__form flex">
+                        <input type="email" class="feedback-form__email form-feedback__email" placeholder="Email">
+                        <input type="submit" value="" class="feedback-form__submit form-feedback__submit">
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        
+<div class="container footer-container flex">
+    <p class="footer-copy">© Copyright 2018. All rights reserved</p>
+    <div class="footer-slogan flex">
+        <p class="slogan-left">Made with love in</p>
+        <div class="slogan-right flex">
+            <p class="slogan-right__first">The First</p>
+            <p class="slogan-right__last">The Last.</p>
+        </div>
+    </div>
+</div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js?_v=20220713230118" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js?_v=20220713230118"></script>
+    <script src="js/mixitup.min.js?_v=20220713230118"></script>
+    <script src="js/main.js?_v=20220713230118"></script>
+</body>
+</html>
