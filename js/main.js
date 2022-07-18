@@ -13,9 +13,6 @@ var swiper = new Swiper('.intro-swiper', {
     slidesPerGroup: 1,
     //бесконечное прокручивание
     loop: true,
-    autoplay: {
-        delay: 10000
-    }
 });
 
 // ---------------SWIPER about-page-----------------------
@@ -32,9 +29,17 @@ var swiper = new Swiper('.about-philosophy__slider', {
     slidesPerGroup: 1,
     //бесконечное прокручивание
     loop: true,
-    autoplay: {
-        delay: 10000
-    }
+});
+
+// ---------------SWIPER one-blog-------------------------
+var swiper = new Swiper('.latest-news__slider', {
+    slidesPerView: 3.5,
+    spaceBetween: 45,
+    slidesPerGroup: 1,
+    simulateTouch: true,
+    grabCursor: true,
+    //бесконечное прокручивание
+    loop: true,
 });
 
 // --------------------------TABS----------------------------

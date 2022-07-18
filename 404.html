@@ -1,3 +1,7 @@
+<?php
+Header("HTTP/1.1 404 Not Found");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,12 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css?_v=20220718230042"/>
     <link rel="stylesheet" href="css/style.min.css?_v=20220718230042">
-    <title>Interior</title>
+    <title>Sorry</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap&_v=20220718230042" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap&_v=20220718230042" rel="stylesheet">
 </head>
-<body>
-    <header class="black-header">
+<body class="body-404">
+    <header class="header-404 black-header">
         <div class="container header-container flex">
     <a href="index.html" class="logo">Hilight</a>
     <nav class="header-nav flex">
@@ -38,51 +42,13 @@
 </div>
     </header>
     <main>
-        <section class="contacts contact-page">
-            <div class="container contacts-container">
-    <h2 class="contacts-title">Drop us a line</h2>
-    <p class="contacts-descr">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ullamcorper eu mauris vitae posuere.</p>
-    <div class="contacts-items flex">
-        <div class="contacts-addresses flex">
-            <div class="addresses-item">
-                <h4 class="addresses-item__town">Kyiv</h4>
-                <a href="tel:+380972283416" class="addresses-item__phone">(209) 555-0104</a>
-                <p class="addresses-item__street">6391 Elgin St. Celina,</p>
-                <p class="addresses-item__home">Delaware 10299</p>
-            </div>
-            <div class="addresses-item">
-                <h4 class="addresses-item__town">Lviv</h4>
-                <a href="tel:+380972283416" class="addresses-item__phone">(209) 555-0104</a>
-                <p class="addresses-item__street">6391 Elgin St. Celina,</p>
-                <p class="addresses-item__home">Delaware 10299</p>
-            </div>
-            <div class="addresses-item">
-                <h4 class="addresses-item__town">Kharkiv</h4>
-                <a href="tel:+380972283416" class="addresses-item__phone">(209) 555-0104</a>
-                <p class="addresses-item__street">6391 Elgin St. Celina,</p>
-                <p class="addresses-item__home">Delaware 10299</p>
-            </div>
-        </div>
-        <div class="contacts-social">
-            <a href="mailto:info@gmail.com" class="contacts-social__mail">info@gmail.com</a>
-            <ul class="contacts-social__links flex">
-                <li class="contacts-social__list">
-                    <a href="#" class="contacts-social__link">Fb</a>
-                </li>
-                <li class="contacts-social__list">
-                    <a href="#" class="contacts-social__link">In</a>
-                </li>
-                <li class="contacts-social__list">
-                    <a href="#" class="contacts-social__link">Be</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <button class="request-descr__button">Make request</button>
-</div>
+        <section class="error-message">
+            <h1 class="error-message__title">Page not found</h1>
+            <p class="error-message__text">Something went wrong. Page not found</p>
+            <a href="index.html" class="error-message__link discover-link">go to main</a>
         </section>
     </main>
-    <footer class="footer">
+    <footer class="footer footer-404">
         
 <div class="container footer-container flex">
     <p class="footer-copy">© Copyright 2018. All rights reserved</p>
