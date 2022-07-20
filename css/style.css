@@ -1088,6 +1088,11 @@ h2 {
   padding: 120px 0 170px;
 }
 
+.contacts-header #preloader {
+  display: none;
+  z-index: -99;
+}
+
 .contacts-container {
   padding: 0 13.5%;
   color: #fff;
