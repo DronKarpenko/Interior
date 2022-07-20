@@ -8,15 +8,99 @@ Header("HTTP/1.1 404 Not Found");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css?_v=20220718230042"/>
-    <link rel="stylesheet" href="css/style.min.css?_v=20220718230042">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css?_v=20220721001634"/>
+    <link rel="stylesheet" href="css/style.min.css?_v=20220721001634">
     <title>Sorry</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap&_v=20220718230042" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap&_v=20220718230042" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap&_v=20220721001634" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap&_v=20220721001634" rel="stylesheet">
 </head>
 <body class="body-404">
+    <div class="popup">
+    <button class="popup-close">&times;</button>
+    <form action="" class="popup-form">
+        <div class="form-info flex">
+            <h2 class="popup-title">Calculate the cost of work</h2>
+            <input type="text" class="form-info__item" placeholder="Name">
+            <input type="text" class="form-info__item" placeholder="Last name">
+            <input type="tel" class="form-info__item" placeholder="Phone">
+            <input type="text" class="form-info__item" placeholder="Your city">
+            <input type="email" class="form-info__item" placeholder="Email">
+            <select name="property" id="property" class="form-info__item" placeholder="Property type">
+
+            </select>
+            <input type="text" class="form-info__item form-info__comment" placeholder="Your comment">
+        </div>
+        <div class="form-area">
+            <h4 class="form-area__title">Area (m2)</h4>
+
+            <div class="form-area__selection flex">
+                <div class="area-selection__item">
+                    <input type="radio" id="selection-item1" name="area" value="to 50">
+                    <label for="selection-item1">to 50</label>                    
+                </div>
+                <div class="area-selection__item">
+                    <input type="radio" id="selection-item2" name="area" value="50-150" checked>
+                    <label for="selection-item2">50-150</label>                    
+                </div>
+                <div class="area-selection__item">
+                    <input type="radio" id="selection-item3" name="area" value="150-250">
+                    <label for="selection-item3">150-250</label>                    
+                </div>
+                <div class="area-selection__item">
+                    <input type="radio" id="selection-item4" name="area" value="250-400">
+                    <label for="selection-item4">250-400</label>                    
+                </div>
+                <div class="area-selection__item">
+                    <input type="radio" id="selection-item5" name="area" value="400-600">
+                    <label for="selection-item5">400-600</label>                    
+                </div>
+                <div class="area-selection__item">
+                    <input type="radio" id="selection-item6" name="area" value="600-800">
+                    <label for="selection-item6">600-800</label>                    
+                </div>
+                <div class="area-selection__item">
+                    <input type="radio" id="selection-item7" name="area" value="800-1000">
+                    <label for="selection-item7">800-1000</label>                    
+                </div>
+                <div class="area-selection__item">
+                    <input type="radio" id="selection-item8" name="area" value="1000+">
+                    <label for="selection-item8">1000+</label>                    
+                </div>
+            </div>
+
+            <div class="form-area__buttons flex">
+                <label for="file-upload" class="file-upload">
+                    <button class="file-upload__button">
+                        <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect y="4" width="9" height="1" fill="#3A3E4B"/>
+                            <rect x="4" width="1" height="9" fill="#3A3E4B"/>
+                        </svg>
+                    </button>
+                    <span>Attach your file</span>
+                    File size not more than 10 MB
+                </label>
+                <input name="myFile" type="file" id="file-upload" class="form-area__file">
+                <button type="submit" class="form-area__submit send">Send Request</button>
+            </div>
+            <p class="form-area__descr">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>            
+        </div>
+    </form>
+</div>
     <header class="header-404 black-header">
         <div class="container header-container flex">
+
+    <!-- PRELOADER -->
+
+    <div id="preloader" class="preloader">
+        <div class="preloader-loader flex">
+            <span class="preloader-hi">HI</span>
+            <span class="preloader-light">LIGHT</span>
+            <span id="percents" class="percents">0</span>
+        </div>
+    </div>
+
+    <!-- END PRELOADER -->
+
     <a href="index.html" class="logo">Hilight</a>
     <nav class="header-nav flex">
         <ul class="header-menu flex">
@@ -37,7 +121,7 @@ Header("HTTP/1.1 404 Not Found");
             <li class="language-en" lang="en">En</li>
             <li class="language-uk" lang="uk"">Uk</li>
         </ul>
-        <button class="send header-nav__button">Send request</button>
+        <button class="send header-nav__button popup-open">Send request</button>
     </nav>
 </div>
     </header>
@@ -61,8 +145,8 @@ Header("HTTP/1.1 404 Not Found");
     </div>
 </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js?_v=20220718230042" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js?_v=20220718230042"></script>
-    <script src="js/main.js?_v=20220718230042"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js?_v=20220721001634" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js?_v=20220721001634"></script>
+    <script src="js/main.js?_v=20220721001634"></script>
 </body>
 </html>

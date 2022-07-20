@@ -1,4 +1,121 @@
-// ----------------mixitup-blog
+// --------------------------PRELOADER-------------------
+// document.addEventListener('DOMContentLoaded', () => {
+// const mediaFiles = document.querySelectorAll('img');
+// const preloader = document.querySelector('.preloader');
+// const percents = document.querySelector('.percents');
+// const preloaderLight = document.querySelector('.preloader-light');
+
+//     let i = 0
+
+//     Array.from(mediaFiles).forEach((file, index) => {
+//         file.onload = () => {
+//             i++
+//             console.log(mediaFiles)
+
+//             percents.innerHTML = ((i * 100) / mediaFiles.length).toFixed()
+
+//             if(i === mediaFiles.length) {
+//                 percents.innerHTML = 100
+//                 percents.classList.add('percents--hide')
+//                 preloaderLight.classList.add('preloader-light--show')
+//                 // setTimeout(preloader.classList.add('preloader--hide'), 500)
+//                 preloader.classList.add('preloader--hide')
+//             }
+//         }
+//     })
+// })
+const preloader = document.querySelector('.preloader')
+const percents = document.querySelector('.percents')
+const preloaderLight = document.querySelector('.preloader-light')
+
+let images = document.images,
+    images_total_count = images.length,
+    images_loaded_count = 0;
+
+for (var i = 0; i < images_total_count; i++) {
+    image_clone = new Image();
+    image_clone.onload = image_loaded;
+    image_clone.onerror = image_loaded;
+    image_clone.src = images[i].src;
+}
+
+console.log(images_total_count);
+console.log(images_loaded_count);
+
+function image_loaded() {
+    images_loaded_count++;
+    percents.innerHTML = (((100 / images_total_count) * images_loaded_count) << 0) + '%';
+    if(images_loaded_count >= images_total_count){
+        percents.classList.add('percents--hide')
+        preloaderLight.classList.add('preloader-light--show')
+        setTimeout(function(){            
+            preloader.classList.add('preloader--hide')
+        }, 1000);
+    }
+}
+
+
+// --------------------------POP-UP------------------
+let popup = document.querySelector('.popup')
+    popupOpen = document.querySelector('.popup-open')
+    popupClose = document.querySelector('.popup-close')
+    sendClose = document.querySelector('.form-area__submit')
+    blockBody = document.querySelector('body')
+
+    popupOpen.onclick = function(){
+        popup.classList.add('popup--visible');
+        blockBody.classList.add('body--block')
+    };
+    popupClose.onclick = function(){
+        popup.classList.remove('popup--visible');
+        blockBody.classList.remove('body--block')
+    };
+    sendClose.onclick = function(){
+        popup.classList.remove('popup--visible');
+        blockBody.classList.remove('body--block')
+    };
+    window.onclick = function(e){
+        if(e.target == popup){
+            popup.classList.remove('popup--visible');
+            blockBody.classList.remove('body--block')
+        }
+    };
+
+// ------------------------FILTER BLOG---------------
+function app() {
+    const buttons = document.querySelectorAll('.filter')
+    const cards = document.querySelectorAll('.blog-news__item')
+
+    function filter (category, items) {
+        items.forEach((item) => {
+            const isItemFiltered = !item.classList.contains(category)
+            const isShowAll = category.toLowerCase() === 'all'
+            if (isItemFiltered && !isShowAll) {
+                item.classList.add('anime')
+            } else {
+                item.classList.remove('hide')
+                item.classList.remove('anime')
+            }
+        })
+    }
+
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const currentCategory = button.dataset.filter
+            filter(currentCategory, cards)
+        })
+    })
+
+    cards.forEach((card) => {
+        card.ontransitionend = function () {
+            if (card.classList.contains('anime')) {
+                card.classList.add('hide')
+            }
+        }
+    })
+}
+
+app()
 
 
 // ---------------SWIPER header-------------------------
@@ -68,4 +185,4 @@ function onTabClick(item) {
         }
     });
 }
-document.querySelector('.projects-category__link').click();
+// document.querySelector('.projects-category__link').click();
