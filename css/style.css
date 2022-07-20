@@ -2099,6 +2099,11 @@ ul.article-list {
   position: relative;
 }
 
+.header-404 #preloader {
+  display: none;
+  z-index: -99;
+}
+
 .error-message {
   position: absolute;
   left: 18.4027777778%;
