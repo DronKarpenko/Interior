@@ -363,7 +363,8 @@ h2 {
   opacity: 0;
 }
 
-.popup-close {
+.popup-close,
+.thanks-popup__close {
   position: absolute;
   right: 40px;
   top: 40px;
@@ -374,11 +375,13 @@ h2 {
   color: #fff;
   transition: all 0.5s;
 }
-.popup-close:hover {
+.popup-close:hover,
+.thanks-popup__close:hover {
   transform: scale(2);
 }
 
-.popup {
+.popup,
+.thanks-popup {
   visible: hidden;
   transform: scale(0);
   position: fixed;
@@ -392,7 +395,8 @@ h2 {
   overflow: auto;
 }
 
-.popup--visible {
+.popup--visible,
+.thanks-popup--visible {
   visible: visible;
   transform: scale(1);
   z-index: 99;
@@ -648,6 +652,103 @@ h2 {
 }
 .file-upload:hover .file-upload__button svg rect {
   fill: #fff;
+}
+
+.thanks-popup__container {
+  width: 72.6388888889%;
+  background: #FFF;
+  padding: 100px 0;
+  color: #3A3E4B;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 100px 0;
+}
+.thanks-popup__title {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+.thanks-popup__text {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.upload-progress .row {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+.upload-progress .row img {
+  margin-right: 20px;
+}
+.upload-progress .row .content {
+  width: 100%;
+  margin-left: 15px;
+}
+.upload-progress .row .content .details {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
+.upload-progress .row .content .progress-bar {
+  height: 5px;
+  width: 100%;
+  margin-bottom: 4px;
+  background-color: #fff;
+  border-radius: 25px;
+}
+.upload-progress .row .content .progress-bar .progress {
+  height: 100%;
+  width: 0%;
+  background-color: #3a3e4b;
+  border-radius: inherit;
+}
+
+.upload-area {
+  margin-bottom: 40px;
+}
+
+.upload-area {
+  max-height: 250px;
+  overflow-y: scroll;
+}
+.upload-area .row {
+  margin-bottom: 30px;
+  list-style: none;
+}
+.upload-area .row .content {
+  display: flex;
+  align-items: center;
+}
+.upload-area .row .content .details {
+  display: flex;
+  margin-left: 15px;
+  flex-direction: column;
+}
+.upload-area .row .content .details .size {
+  font-family: "Montserrat";
+  font-size: 11px;
+}
+.upload-area .row .content img {
+  margin-right: 20px;
+}
+
+.upload-area.onprogress {
+  max-height: 150px;
+}
+
+.done-img {
+  margin-left: auto;
 }
 
 .header-burger {
@@ -2983,5 +3084,198 @@ ul.article-list {
   }
   .article-container {
     padding-top: 0;
+    width: 70%;
+  }
+  .article-title {
+    width: 80%;
+  }
+  .article-gallery.project-gallery {
+    margin-bottom: 80px;
+  }
+  .our-latest-news {
+    padding-top: 80px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .one-blog--descr-title {
+    font-size: 26px;
+    line-height: 32px;
+  }
+  .one-blog--info-descr {
+    width: 100%;
+    margin: 0;
+  }
+  .one-blog--info {
+    padding: 60px 0;
+  }
+  .one-blog--descr-text {
+    margin-bottom: 40px;
+  }
+  .article-container {
+    width: 85%;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-left: 0;
+    padding-bottom: 60px;
+  }
+  .our-latest-news {
+    padding-top: 0;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .about-intro__container {
+    width: 50%;
+  }
+  .about-philosophy {
+    padding: 100px 0;
+  }
+  .about-philosophy__container {
+    margin-left: 9%;
+  }
+  .about-achievements {
+    padding-top: 80px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .about-intro__container {
+    width: 70%;
+  }
+  .about-philosophy {
+    padding: 0;
+  }
+  .about-philosophy__container {
+    flex-direction: column;
+    margin-left: 25px;
+  }
+  .about-philosophy__descr {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .about-philosophy__slider-arrow {
+    opacity: 0.8;
+    width: 75%;
+    margin: 0 auto;
+  }
+  .about-philosophy__slider {
+    width: 100%;
+    max-height: 380px;
+  }
+  .about-founder__title {
+    margin-left: 0;
+    font-size: 26px;
+    line-height: 32px;
+  }
+  .about-founder__job-title {
+    margin-left: 0;
+  }
+  .about-founder__photo {
+    margin-bottom: 30px;
+  }
+  .achievements__descr-item span {
+    font-size: 32px;
+    line-height: 36px;
+  }
+  .about-founder__container {
+    padding: 0 25px;
+  }
+  .philosophy-quote.about-founder__quote {
+    margin-left: 0px;
+    width: 100%;
+    padding-left: 50px;
+    margin-bottom: 150px;
+  }
+  .about-founder__command-photo {
+    width: 80%;
+  }
+  .about-founder__scills li span {
+    font-size: 26px;
+    line-height: 32px;
+  }
+  .about-vacancy {
+    padding: 60px 0 130px;
+  }
+  .about-vacancy__container {
+    width: 100%;
+    padding: 0 25px;
+  }
+  .about-vacancy__title {
+    font-size: 32px;
+    line-height: 36px;
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .about-vacancy__feedback {
+    margin-top: 80px;
+    flex-direction: column;
+  }
+  .feedback-form,
+.feedback-block {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 640px) {
+  .about-intro__container {
+    padding: 150px 0;
+    width: 85%;
+  }
+  .about-intro__title {
+    font-size: 26px;
+    line-height: 32px;
+  }
+  .about-philosophy__descr {
+    width: 90%;
+    padding: 60px 0;
+  }
+  .achievements__absolute-img,
+.achievements__img {
+    display: none;
+  }
+  .achievements__container {
+    padding: 0 25px;
+    flex-direction: column;
+  }
+  .achievements__descr-item {
+    width: 25%;
+    text-align: center;
+  }
+  .about-achievements {
+    padding-top: 40px;
+  }
+  .about-founder {
+    padding: 40px 0;
+  }
+  .about-founder__container {
+    flex-direction: column;
+  }
+  .about-founder__command-photo {
+    display: none;
+  }
+  .about-founder__left-column,
+.about-founder__right-column {
+    width: 90%;
+  }
+  .philosophy-quote.about-founder__quote {
+    margin-bottom: 0;
+  }
+  .about-founder__title {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  .achievements__descr-item span {
+    font-size: 24px;
+    line-height: 28px;
+  }
+  .about-vacancy__title,
+.feedback-form,
+.feedback-block {
+    width: 100%;
+  }
+  .about-vacancy__title {
+    font-size: 26px;
+    line-height: 32px;
   }
 }

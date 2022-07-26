@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css?_v=20220726010730"/>
-    <link rel="stylesheet" href="css/style.min.css?_v=20220726010730">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css?_v=20220726212925"/>
+    <link rel="stylesheet" href="css/style.min.css?_v=20220726212925">
     <title>Interior</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap&_v=20220726010730" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap&_v=20220726010730" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap&_v=20220726212925" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap&_v=20220726212925" rel="stylesheet">
 </head>
 <body>
     <div class="popup">
     <button class="popup-close">&times;</button>
-    <form action="" class="popup-form">
+    <form action="" class="popup-form" id="popupForm">
         <div class="form-info flex">
             <h2 class="popup-title">Calculate the cost of work</h2>
             <input type="text" class="form-info__item" placeholder="Name" required>
@@ -74,22 +74,34 @@
 
             <div class="form-area__buttons flex">
                 <label for="file-upload" class="file-upload">
-                    <button class="file-upload__button">
+                    <div class="file-upload__button">
                         <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect y="4" width="9" height="1" fill="#3A3E4B"/>
                             <rect x="4" width="1" height="9" fill="#3A3E4B"/>
                         </svg>
-                    </button>
+                    </div>
                     <span>Attach your file</span>
                     File size not more than 10 MB
+                    <input name="myFile" type="file" id="file-upload" class="form-area__file">
                 </label>
-                <input name="myFile" type="file" id="file-upload" class="form-area__file">
-                <button type="submit" class="form-area__submit send">Send Request</button>
+                <input type="submit" value="Send Request" class="form-area__submit submit send" onclick="submitForm()">
             </div>
+            
+            <section class="upload-progress"></section>            
+            <section class="upload-area"></section>
+            
             <p class="form-area__descr">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>            
         </div>
     </form>
 </div>
+
+<!-- <div class="thanks-popup">
+    <button class="thanks-popup__close">&times;</button>
+    <div class="thanks-popup__container">
+        <h2 class="thanks-popup__title">Thank you for your message!</h2>
+        <p class="thanks-popup__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ullamcorper eu mauris vitae posuere. Ut at luctus ligula. Nunc ante felis, aliquam eu enim sed, ornare pretium velit.</p>
+    </div>
+</div> -->
     <header class="header one-project--header">
         <div class="container header-container flex">
     <a href="index.html" class="logo">Hilight</a>
@@ -245,8 +257,8 @@
             </div>
         </section>
     </main>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js?_v=20220726010730" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js?_v=20220726010730"></script>
-    <script src="js/main.js?_v=20220726010730"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js?_v=20220726212925" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js?_v=20220726212925"></script>
+    <script src="js/main.js?_v=20220726212925"></script>
 </body>
 </html>

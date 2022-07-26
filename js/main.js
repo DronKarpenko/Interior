@@ -1,3 +1,65 @@
+const fileLoad = document.getElementById('file-upload');
+const uploadProgress = document.querySelector(".upload-progress");
+const uploadArea = document.querySelector(".upload-area");
+
+
+    fileLoad.addEventListener('change', ({target, total}) => {
+        let file = target.files[0];
+        if (file) {
+            let fileName = file.name;
+            let fileSize = file.size;
+            if (file.size > 10 * 1024 * 1024) {
+                alert('File size not more than 10 MB');
+                uploadProgress.innerHTML = "";
+                uploadArea.insertAdjacentHTML("afterbegin", "");
+                return;
+            }
+            if (file.size < 1000000) {
+                fileSize = Math.floor(fileSize / 1000) + " KB";
+            } else {
+                fileSize = Math.floor(fileSize / 1000000) + " MB";
+            }
+            let progressHTML = `<li class="row">
+                                    <img src="img/upload-file.png" width="30" alt="file">
+                                    <div class="content">
+                                        <div class="details">
+                                            <span class="name">${fileName} * Uploading</span>
+                                            <span class="percent">50%</span>
+                                        </div>
+                                        <div class="progress-bar">
+                                            <div class="progress"></div>
+                                        </div>
+                                    </div>
+                                </li>`;
+            uploadProgress.innerHTML = progressHTML;
+            setTimeout(() => {
+                uploadProgress.innerHTML = "";
+            }, 2000);
+            setTimeout(() => {
+                let uploadedHTML = `<li class="row">
+                                        <div class="content">
+                                            <img src="img/upload-file.png" width="30" alt="file">
+                                            <div class="details">
+                                                <span class="name">${fileName} * Uploaded</span>
+                                                <span class="size">${fileSize}</span>
+                                            </div>
+                                        </div>
+                                    </li>`;
+            uploadArea.insertAdjacentHTML("afterbegin", uploadedHTML);
+            }, 2100); 
+            uploadFile(file);
+        }
+    });
+
+function submitForm() {
+   // Get the first form with the name
+   // Hopefully there is only one, but there are more, select the correct index
+   document.forms['popup-form'].reset()
+}
+
+
+
+
 // -----------------------BURGER-MENU-----------------
 $(document).ready(function() {
     $('.header-burger').click(function(event) {
@@ -7,35 +69,35 @@ $(document).ready(function() {
 });
 
 // --------------------------PRELOADER-------------------
-const preloader = document.querySelector('.preloader')
-const percents = document.querySelector('.percents')
-const preloaderLight = document.querySelector('.preloader-light')
+// const preloader = document.querySelector('.preloader')
+// const percents = document.querySelector('.percents')
+// const preloaderLight = document.querySelector('.preloader-light')
 
-let images = document.images,
-    images_total_count = images.length,
-    images_loaded_count = 0;
+// let images = document.images,
+//     images_total_count = images.length,
+//     images_loaded_count = 0;
 
-for (var i = 0; i < images_total_count; i++) {
-    image_clone = new Image();
-    image_clone.onload = image_loaded;
-    image_clone.onerror = image_loaded;
-    image_clone.src = images[i].src;
-}
+// for (var i = 0; i < images_total_count; i++) {
+//     image_clone = new Image();
+//     image_clone.onload = image_loaded;
+//     image_clone.onerror = image_loaded;
+//     image_clone.src = images[i].src;
+// }
 
-console.log(images_total_count);
-console.log(images_loaded_count);
+// console.log(images_total_count);
+// console.log(images_loaded_count);
 
-function image_loaded() {
-    images_loaded_count++;
-    percents.innerHTML = (((100 / images_total_count) * images_loaded_count) << 0) + '%';
-    if(images_loaded_count >= images_total_count){
-        percents.classList.add('percents--hide')
-        preloaderLight.classList.add('preloader-light--show')
-        setTimeout(function(){            
-            preloader.classList.add('preloader--hide')
-        }, 1000);
-    }
-}
+// function image_loaded() {
+//     images_loaded_count++;
+//     percents.innerHTML = (((100 / images_total_count) * images_loaded_count) << 0) + '%';
+//     if(images_loaded_count >= images_total_count){
+//         percents.classList.add('percents--hide')
+//         preloaderLight.classList.add('preloader-light--show')
+//         setTimeout(function(){            
+//             preloader.classList.add('preloader--hide')
+//         }, 1000);
+//     }
+// }
 
 
 // --------------------------POP-UP------------------
@@ -44,6 +106,7 @@ let popup = document.querySelector('.popup')
     popupClose = document.querySelector('.popup-close')
     sendClose = document.querySelector('.form-area__submit')
     blockBody = document.querySelector('body')
+    // thanksPopup = document.querySelector('thanks-popup')
 
     popupOpen.onclick = function(){
         popup.classList.add('popup--visible');
@@ -51,16 +114,20 @@ let popup = document.querySelector('.popup')
     };
     popupClose.onclick = function(){
         popup.classList.remove('popup--visible');
-        blockBody.classList.remove('body--block')
+        blockBody.classList.remove('body--block');
+        document.getElementById('popupForm').reset();
     };
     sendClose.onclick = function(){
         popup.classList.remove('popup--visible');
-        blockBody.classList.remove('body--block')
+        blockBody.classList.remove('body--block');
+        document.getElementById('popupForm').reset();
+
     };
     window.onclick = function(e){
         if(e.target == popup){
             popup.classList.remove('popup--visible');
-            blockBody.classList.remove('body--block')
+            blockBody.classList.remove('body--block');
+            document.getElementById('popupForm').reset();
         }
     };
 
@@ -134,6 +201,20 @@ var swiper = new Swiper('.about-philosophy__slider', {
 // ---------------SWIPER one-blog-------------------------
 var swiper = new Swiper('.latest-news__slider', {
     slidesPerView: 3.5,
+    breakpoints: {
+        300: {
+            slidesPerView: 1.1,
+        },
+        481: {
+            slidesPerView: 1.5,
+        },
+        769: {
+            slidesPerView: 2.5,
+        },
+        1025: {
+            slidesPerView: 3.5,
+        }  
+    },
     spaceBetween: 45,
     slidesPerGroup: 1,
     simulateTouch: true,
@@ -173,10 +254,9 @@ const selectBtn = document.querySelector('.intro-feedback__geo');
 const select = document.querySelector('.city-selection');
 const selectItems = document.querySelectorAll('.city-selection__list');
 
-selectBtn.addEventListener('click', function() {
+selectBtn.onclick = function(){
     select.classList.toggle('city-selection--visible');
-    this.classList.add('intro-feedback__geo--active');
-});
+};
 selectItems.forEach(function (listItem) {
     listItem.addEventListener('click', function (e) {
         e.stopPropagation();
@@ -201,6 +281,7 @@ popupSelectBtn.addEventListener('click', function() {
     popupSelectList.classList.toggle('select-list--active');
     this.classList.add('select-button--active');
 });
+
 popupSelectItem.forEach(function (listItem) {
     listItem.addEventListener('click', function (e) {
         e.stopPropagation();
@@ -214,17 +295,16 @@ document.addEventListener('click', function (e) {
         popupSelectBtn.classList.remove('select-button--active');
         popupSelectList.classList.remove('select-list--active');
     }
-})
+});
 
 // ---------------------SELECT in PROJECTS------------------------
-const projectsSelectBtn = document.querySelector('.projects-category__nav--btn');
+const projectsSelectBtn = document.querySelector('.projects-select__button');
 const projectsSelectList = document.querySelector('.projects-category__nav');
 const projectsSelectItem = document.querySelectorAll('.projects-category__link');
 
-projectsSelectBtn.addEventListener('click', function() {
+projectsSelectBtn.onclick = function(){
     projectsSelectList.classList.toggle('projects-category__nav--active');
-    this.classList.add('projects-category__nav--btn--active');
-});
+};
 projectsSelectItem.forEach(function (listItem) {
     listItem.addEventListener('click', function (e) {
         e.stopPropagation();
