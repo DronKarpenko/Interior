@@ -1,29 +1,12 @@
+// -----------------------BURGER-MENU-----------------
+$(document).ready(function() {
+    $('.header-burger').click(function(event) {
+        $('.header-burger,.header-menu,.home-link').toggleClass('active');
+        $('body').toggleClass('body--block');
+    });
+});
+
 // --------------------------PRELOADER-------------------
-// document.addEventListener('DOMContentLoaded', () => {
-// const mediaFiles = document.querySelectorAll('img');
-// const preloader = document.querySelector('.preloader');
-// const percents = document.querySelector('.percents');
-// const preloaderLight = document.querySelector('.preloader-light');
-
-//     let i = 0
-
-//     Array.from(mediaFiles).forEach((file, index) => {
-//         file.onload = () => {
-//             i++
-//             console.log(mediaFiles)
-
-//             percents.innerHTML = ((i * 100) / mediaFiles.length).toFixed()
-
-//             if(i === mediaFiles.length) {
-//                 percents.innerHTML = 100
-//                 percents.classList.add('percents--hide')
-//                 preloaderLight.classList.add('preloader-light--show')
-//                 // setTimeout(preloader.classList.add('preloader--hide'), 500)
-//                 preloader.classList.add('preloader--hide')
-//             }
-//         }
-//     })
-// })
 const preloader = document.querySelector('.preloader')
 const percents = document.querySelector('.percents')
 const preloaderLight = document.querySelector('.preloader-light')
@@ -185,4 +168,74 @@ function onTabClick(item) {
         }
     });
 }
-// document.querySelector('.projects-category__link').click();
+// ----------------------SELECT in INTRO-----------------
+const selectBtn = document.querySelector('.intro-feedback__geo');
+const select = document.querySelector('.city-selection');
+const selectItems = document.querySelectorAll('.city-selection__list');
+
+selectBtn.addEventListener('click', function() {
+    select.classList.toggle('city-selection--visible');
+    this.classList.add('intro-feedback__geo--active');
+});
+selectItems.forEach(function (listItem) {
+    listItem.addEventListener('click', function (e) {
+        e.stopPropagation();
+        selectBtn.innerText = this.innerText;
+        selectBtn.focus();
+        select.classList.toggle('city-selection--visible');
+    })
+})
+document.addEventListener('click', function (e) {
+    if (e.target !== selectBtn) {
+        select.classList.remove('city-selection--visible');
+        selectBtn.classList.remove('intro-feedback__geo--active');
+    }
+})
+
+// ---------------------SELECT in POPUP------------------------
+const popupSelectBtn = document.querySelector('.select-button');
+const popupSelectList = document.querySelector('.select-list');
+const popupSelectItem = document.querySelectorAll('.select-list__item');
+
+popupSelectBtn.addEventListener('click', function() {
+    popupSelectList.classList.toggle('select-list--active');
+    this.classList.add('select-button--active');
+});
+popupSelectItem.forEach(function (listItem) {
+    listItem.addEventListener('click', function (e) {
+        e.stopPropagation();
+        popupSelectBtn.innerText = this.innerText;
+        popupSelectBtn.focus();
+        popupSelectList.classList.toggle('select-list--active');
+    })
+})
+document.addEventListener('click', function (e) {
+    if (e.target !== popupSelectBtn) {
+        popupSelectBtn.classList.remove('select-button--active');
+        popupSelectList.classList.remove('select-list--active');
+    }
+})
+
+// ---------------------SELECT in PROJECTS------------------------
+const projectsSelectBtn = document.querySelector('.projects-category__nav--btn');
+const projectsSelectList = document.querySelector('.projects-category__nav');
+const projectsSelectItem = document.querySelectorAll('.projects-category__link');
+
+projectsSelectBtn.addEventListener('click', function() {
+    projectsSelectList.classList.toggle('projects-category__nav--active');
+    this.classList.add('projects-category__nav--btn--active');
+});
+projectsSelectItem.forEach(function (listItem) {
+    listItem.addEventListener('click', function (e) {
+        e.stopPropagation();
+        projectsSelectBtn.innerText = this.innerText;
+        projectsSelectBtn.focus();
+        projectsSelectList.classList.toggle('projects-category__nav--active');
+    })
+})
+document.addEventListener('click', function (e) {
+    if (e.target !== projectsSelectBtn) {
+        projectsSelectBtn.classList.remove('projects-category__nav--btn--active');
+        projectsSelectList.classList.remove('projects-category__nav--active');
+    }
+})
