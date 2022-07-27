@@ -63,7 +63,7 @@ function submitForm() {
 // -----------------------BURGER-MENU-----------------
 $(document).ready(function() {
     $('.header-burger').click(function(event) {
-        $('.header-burger,.header-menu,.home-link').toggleClass('active');
+        $('.header-burger,.header-menu,.home-link,.header-nav__button').toggleClass('active');
         $('body').toggleClass('body--block');
     });
 });
@@ -296,26 +296,3 @@ document.addEventListener('click', function (e) {
         popupSelectList.classList.remove('select-list--active');
     }
 });
-
-// ---------------------SELECT in PROJECTS------------------------
-const projectsSelectBtn = document.querySelector('.projects-select__button');
-const projectsSelectList = document.querySelector('.projects-category__nav');
-const projectsSelectItem = document.querySelectorAll('.projects-category__link');
-
-projectsSelectBtn.onclick = function(){
-    projectsSelectList.classList.toggle('projects-category__nav--active');
-};
-projectsSelectItem.forEach(function (listItem) {
-    listItem.addEventListener('click', function (e) {
-        e.stopPropagation();
-        projectsSelectBtn.innerText = this.innerText;
-        projectsSelectBtn.focus();
-        projectsSelectList.classList.toggle('projects-category__nav--active');
-    })
-})
-document.addEventListener('click', function (e) {
-    if (e.target !== projectsSelectBtn) {
-        projectsSelectBtn.classList.remove('projects-category__nav--btn--active');
-        projectsSelectList.classList.remove('projects-category__nav--active');
-    }
-})

@@ -169,22 +169,17 @@ header {
 }
 
 .language {
+  color: #fff;
   margin-left: auto;
   display: flex;
   margin-right: 83px;
-  background-color: transparent;
   border: none;
   cursor: pointer;
-  position: relative;
   align-items: center;
+  transition: all 0.5s;
 }
-.language .language-uk {
-  position: absolute;
-  bottom: 0;
-  visibility: hidden;
-}
-.language:hover .language-uk {
-  visibility: visible;
+.language:hover {
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .send {
@@ -2440,6 +2435,14 @@ ul.article-list {
   .header-nav__button.send {
     display: none;
   }
+  .header-nav__button.active {
+    display: block;
+    position: absolute;
+    width: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -50px;
+  }
   .header-burger {
     position: absolute;
     right: 20px;
@@ -2866,8 +2869,9 @@ ul.article-list {
     -webkit-backdrop-filter: blur(2px);
             backdrop-filter: blur(2px);
     border: 1px solid #C4C4C4;
-    border-radius: 88px;
+    border-radius: 20px;
     width: 180px;
+    z-index: 2;
   }
   .projects-category__nav--active {
     visibility: visible;
