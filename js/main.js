@@ -64,7 +64,7 @@ function submitForm() {
 $(document).ready(function() {
     $('.header-burger').click(function(event) {
         $('.header-burger,.header-menu,.home-link,.header-nav__button').toggleClass('active');
-        $('body').toggleClass('body--block');
+        $('body').toggleClass('body--not_scroll');
     });
 });
 

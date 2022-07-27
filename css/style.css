@@ -251,7 +251,8 @@ body {
   position: relative;
 }
 
-.body--block {
+.body--block,
+.body--not_scroll {
   overflow: hidden;
   z-index: -1;
 }
@@ -2424,6 +2425,10 @@ ul.article-list {
   }
 }
 @media screen and (max-width: 768px) {
+  .header--dark .header-nav__button {
+    border: 1px solid rgba(253, 253, 253, 0.32);
+    color: #fff;
+  }
   .header-menu {
     text-align: center;
     font-size: 32px;
