@@ -752,6 +752,10 @@ h2 {
   cursor: pointer;
 }
 
+.intro-feedback__geo--wrap {
+  position: relative;
+}
+
 .intro {
   box-sizing: border-box;
   color: #fff;
