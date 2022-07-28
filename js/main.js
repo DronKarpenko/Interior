@@ -57,7 +57,27 @@ function submitForm() {
    document.forms['popup-form'].reset()
 }
 
+const selectBtn = document.querySelector('.intro-feedback__geo');
+const select = document.querySelector('.city-selection');
+const selectItems = document.querySelectorAll('.city-selection__list');
 
+selectBtn.onclick = function(){
+    select.classList.toggle('city-selection--visible');
+};
+selectItems.forEach(function (listItem) {
+    listItem.addEventListener('click', function (e) {
+        e.stopPropagation();
+        selectBtn.innerText = this.innerText;
+        selectBtn.focus();
+        select.classList.toggle('city-selection--visible');
+    })
+})
+document.addEventListener('click', function (e) {
+    if (e.target !== selectBtn) {
+        select.classList.remove('city-selection--visible');
+        selectBtn.classList.remove('intro-feedback__geo--active');
+    }
+})
 
 
 // -----------------------BURGER-MENU-----------------
@@ -250,27 +270,7 @@ function onTabClick(item) {
     });
 }
 // ----------------------SELECT in INTRO-----------------
-const selectBtn = document.querySelector('.intro-feedback__geo');
-const select = document.querySelector('.city-selection');
-const selectItems = document.querySelectorAll('.city-selection__list');
 
-selectBtn.onclick = function(){
-    select.classList.toggle('city-selection--visible');
-};
-selectItems.forEach(function (listItem) {
-    listItem.addEventListener('click', function (e) {
-        e.stopPropagation();
-        selectBtn.innerText = this.innerText;
-        selectBtn.focus();
-        select.classList.toggle('city-selection--visible');
-    })
-})
-document.addEventListener('click', function (e) {
-    if (e.target !== selectBtn) {
-        select.classList.remove('city-selection--visible');
-        selectBtn.classList.remove('intro-feedback__geo--active');
-    }
-})
 
 // ---------------------SELECT in POPUP------------------------
 const popupSelectBtn = document.querySelector('.select-button');
